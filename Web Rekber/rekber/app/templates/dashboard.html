@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+    <h1>Dashboard</h1>
+    <p>Welcome, {{ current_user.username }}!</p>
+
+    <div class="card mt-4">
+        <div class="card-header">
+            Tutorial Transaksi
+        </div>
+        <div class="card-body">
+            <p>Berikut adalah langkah-langkah untuk melakukan transaksi:</p>
+            <ol>
+                <li>Langkah 1: ...</li>
+                <li>Langkah 2: ...</li>
+                <li>Langkah 3: ...</li>
+                <!-- Tambahkan langkah-langkah lainnya sesuai kebutuhan -->
+            </ol>
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <button class="btn btn-primary" onclick="window.location.href='{{ url_for('main.open_ticket') }}'">Buka Tiket Transaksi</button>
+    </div>
+
+    <div class="card mt-4">
+        <div class="card-header">
+            Riwayat Transaksi
+        </div>
+        <div class="card-body">
+            <ul>
+                {% for transaction in current_user.transactions %}
+                    <li>{{ transaction.date_posted }} - {{ transaction.amount }} - {{ transaction.status }}</li>
+                {% else %}
+                    <li>Belum ada transaksi.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="card mt-4">
+        <div class="card-header">
+            Status Transaksi
+        </div>
+        <div class="card-body">
+            <p>Status transaksi Anda saat ini:</p>
+            <ul>
+                {% for transaction in current_user.transactions %}
+                    <li>{{ transaction.date_posted }} - {{ transaction.status }}</li>
+                {% else %}
+                    <li>Belum ada transaksi.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}

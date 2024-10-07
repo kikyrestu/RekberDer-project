@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RekberDer.com</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>RekberDer.com</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Tutorial</a></li>
+                    <li><a href="{{ url_for('main.login') }}">Login</a></li>
+                    <li><a href="{{ url_for('main.register') }}">Daftar</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <img src="{{ url_for('static', filename='images/mascot.png') }}" alt="Hero Image">
+                <div class="hero-text">
+                    <h2>Selamat Datang di <span>RekberDer!</span></h2>
+                    <p>Kami adalah layanan rekening bersama terpercaya yang menjamin keamanan transaksi Anda di dunia digital. Dengan Rekber, Anda bisa bertransaksi dengan tenang tanpa khawatir akan penipuan. Kami memfasilitasi proses pembayaran antara penjual dan pembeli dengan memastikan barang diterima sebelum uang berpindah tangan. Transaksi aman, proses mudah, dan layanan cepat adalah prioritas kami.</p>
+                    <div class="buttons">
+                        <a href="#" class="btn primary">Mulai Sekarang</a>
+                        <a href="#" class="btn secondary">Selengkapnya...</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="features">
+        <div class="container">
+            <div class="feature">
+                <i class="fas fa-shield-alt feature-icon"></i>
+                <h3>Transaksi Aman</h3>
+                <p>Setiap transaksi Anda dilindungi dengan sistem keamanan tingkat tinggi, memastikan uang dan barang Anda aman sampai di tujuan.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-bolt feature-icon"></i>
+                <h3>Proses Cepat</h3>
+                <p>Nikmati proses transaksi yang cepat dan efisien, tanpa harus menunggu lama. Kami menjaga agar transaksi Anda selesai dalam hitungan menit.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-shield-alt feature-icon"></i>
+                <h3>Transaksi Aman</h3>
+                <p>Setiap transaksi Anda dilindungi dengan sistem keamanan tingkat tinggi, memastikan uang dan barang Anda aman sampai di tujuan.</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

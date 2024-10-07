@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Chat Room</h1>
+    <div>
+        <p>Nama Barang: {{ transaction.item_name }}</p>
+        <p>Jenis Transaksi: {{ transaction.transaction_type }}</p>
+        <p>Jumlah Transaksi: {{ transaction.amount }}</p>
+        <p>Fee: {{ transaction.fee }}</p>
+    </div>
+    <div id="chat-box">
+        {% for message in messages %}
+            <p><strong>{{ message.sender.username }}:</strong> {{ message.message }}</p>
+        {% endfor %}
+    </div>
+    <input type="text" id="message" placeholder="Type your message here...">
+    <button id="send">Send</button>
+
+    {% if current_user.username == transaction.owner.username or current_user.username == transaction.buyer_username %}
+        <button id="deal">Transaksi Deal</button>
+        <button id="non_deal">Transaksi Non Deal</button>
+    {% endif %}
+
+    <script>
+        $(document).ready(function() {
+            var socket = io.connect('http://' + document.domain + ':' + location.port);
+            var room = 'transaction_' + {{ transaction.id }};
+
+            socket.on('connect', function() {
+                socket.emit('join', {'room': room});
+            });
+
+            socket.on('message', function(data) {
+                $('#chat-box').append('<p>' + data.msg + '</p>');
+            });
+
+            $('#send').click(function() {
+                var msg = $('#message').val();
+                socket.emit('message', {'msg': msg, 'room': room, 'transaction_id': {{ transaction.id }}});
+                $('#message').val('');
+            });
+
+            $('#deal').click(function() {
+                socket.emit('deal', {'room': room, 'transaction_id': {{ transaction.id }}});
+            });
+
+            $('#non_deal').click(function() {
+                socket.emit('non_deal', {'room': room, 'transaction_id': {{ transaction.id }}});
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Open Ticket{% endblock %}
+{% block content %}
+    <h1>Open Ticket</h1>
+    <form method="POST">
+        <div class="form-group">
+            <label for="item_name">Nama Barang</label>
+            <input type="text" class="form-control" id="item_name" name="item_name" required>
+        </div>
+        <div class="form-group">
+            <label for="transaction_type">Jenis Transaksi</label>
+            <input type="text" class="form-control" id="transaction_type" name="transaction_type" required>
+        </div>
+        <div class="form-group">
+            <label for="amount">Jumlah Transaksi</label>
+            <input type="number" class="form-control" id="amount" name="amount" required>
+        </div>
+        <div class="form-group">
+            <label for="buyer_username">Username Pembeli</label>
+            <input type="text" class="form-control" id="buyer_username" name="buyer_username" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Buka Tiket</button>
+    </form>
+{% endblock %}

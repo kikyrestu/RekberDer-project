@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Admin Dashboard{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-3">
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active">Active Chat Rooms</a>
+                {% for transaction in transactions %}
+                    <a href="{{ url_for('main.chat', transaction_id=transaction.id) }}" class="list-group-item list-group-item-action">
+                        Room {{ transaction.id }}: {{ transaction.item_name }}
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-md-9">
+            <h1>Admin Dashboard</h1>
+            <p>Welcome, {{ current_user.username }}!</p>
+            <!-- Tambahkan konten dashboard admin lainnya di sini -->
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #0168FD;
+    color: #ffffff;
+}
+
+.container {
+    width: 85%;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+header {
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: background-color 0.3s;
+}
+
+header nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.hero {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hero img {
+    width: 300px;
+}
+
+.hero-text {
+    max-width: 600px;
+    text-align: left;
+}
+
+.hero h2 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.hero h2 span {
+    color: #FFD700;
+}
+
+.hero p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.btn {
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.btn.primary {
+    background-color: #2E9BFF;
+    color: #ffffff;
+}
+
+.btn.secondary {
+    background-color: #ffffff;
+    color: #2E9BFF;
+}
+
+/* Bagian Features */
+.features {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 50px 0;
+    .container {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.feature {
+    flex: 1;
+    text-align: center;
+    max-width: 300px;
+    margin: 0 20px;
+}
+
+.feature-icon {
+    font-size: 40px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.feature h3 {
+    font-size: 1.5em;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.feature p {
+    font-size: 1em;
+    color: #fff;
+    line-height: 1.6;
+}
